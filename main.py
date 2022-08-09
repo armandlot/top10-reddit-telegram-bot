@@ -1,8 +1,9 @@
 #!/usr/bin/env python
 
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
+import config
 
-TOKEN = 
+TOKEN = config.API_TOKEN
 
 updater.dispatcher.add_handler(CommandHandler("commande", fonction))
 updater.dispatcher.add_handler(MessageHandler(Filters.text, pas_compris))
