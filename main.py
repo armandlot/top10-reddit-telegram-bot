@@ -2,6 +2,7 @@
 
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 import config
+import logging
 
 TOKEN = config.API_TOKEN
 
@@ -19,9 +20,14 @@ def fonction(update, context):
     update.message.reply_text("Un message à répondre en fonction de la commande saisie par l'utilisateur")
 
 def pas_compris(update, context):
-    update.message.reply_text('Je n\'ai pas compris votre message', update.message.text )
+    update.message.reply_text("Je n'ai pas compris votre message", update.message.text )
 
 def main():
+    #Set-up the logging mode
+    logging.basicConfig(
+        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+        level=logging.INFO
+    )
     # La classe Updater permet de lire en continu ce qu'il se passe sur le channel
     updater = Updater(TOKEN, use_context=True)
 
